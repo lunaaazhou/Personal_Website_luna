@@ -5,6 +5,8 @@
   font-weight: normal;
   font-style: normal; }
 
+
+
 /* =======================================================
 *
 * 	Template Style 
@@ -33,6 +35,7 @@ a {
 
 p {
   margin-bottom: 1.5em; }
+
 
 h1, h2, h3, h4, h5, h6 {
   color: #000;
@@ -71,31 +74,6 @@ figure {
   width: 100%;
   overflow: hidden;
   position: relative; }
-
-/* === Skills chip styles === */
-.skills-cloud{
-  display:flex;
-  flex-wrap:wrap;
-  gap:18px;
-  margin-top:18px;
-}
-.skills-cloud .skill-chip{
-  display:inline-flex;
-  align-items:center;
-  padding:10px 18px;
-  background:#9bb3ff;       /* pill color */
-  color:#fff;
-  border-radius:9999px;      /* fully rounded */
-  font-weight:700;
-  letter-spacing:.5px;
-  line-height:1;
-  box-shadow:0 6px 18px rgba(0,0,0,.12);
-  white-space:nowrap;
-}
-.skills-cloud .skill-chip:hover{
-  transform:translateY(-1px);
-}
-
 
 #colorlib-aside {
   padding-top: 3em;
@@ -464,7 +442,7 @@ body.offcanvas {
 
 .hire {
   padding: 2em;
-  background: #f9bf3f; }
+  background: #97cfff; }
   .hire h2 {
     line-height: 1.5; }
   .hire .btn-hire {
@@ -966,7 +944,7 @@ body.offcanvas {
     bottom: 0;
     left: 0;
     right: 0;
-    background: #2c98f0;
+    background: #99b5e0;
     opacity: 0;
     -webkit-transition: 0.3s;
     -o-transition: 0.3s;
@@ -1452,3 +1430,61 @@ body.offcanvas {
 
 .js .animate-box {
   opacity: 0; }
+
+/* Chip grid container */
+.skills-cloud{
+  display:flex;
+  flex-wrap:wrap;
+  gap:16px 18px;                 /* row/column gaps */
+  margin-top:8px;
+}
+
+/* Individual chip */
+.skill-chip{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px 18px;
+  border-radius:9999px;          /* full pill */
+  background:#ffffff;            /* light theme base */
+  color:#0f172a;                 /* slate-900-ish */
+  font-weight:600;
+  line-height:1;
+  letter-spacing:.2px;
+  box-shadow:0 1px 2px rgba(0,0,0,.06), 0 1px 1px rgba(0,0,0,.04);
+  border:1px solid rgba(15,23,42,.06);
+  transform:translateZ(0);       /* prevents blur during scale */
+  transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+  cursor:default;
+}
+
+/* Hover/Focus “small animation” */
+.skill-chip:hover,
+.skill-chip:focus{
+  transform:scale(1.06);
+  box-shadow:0 10px 20px rgba(0,0,0,.10), 0 4px 6px rgba(0,0,0,.06);
+  border-color:rgba(15,23,42,.15);
+  outline:none;
+}
+
+/* Dark mode support (optional) */
+@media (prefers-color-scheme: dark){
+  .skills-cloud{ gap:14px 16px; }
+  .skill-chip
+  {
+    background:#9ab8ff;          /* near navy */
+    color:#ffffff;               /* gray-200 */
+    border-color:rgba(255,255,255,.08);
+    box-shadow:0 1px 2px rgba(0,0,0,.25), inset 0 0 0 1px rgba(255,255,255,.02);
+  }
+  .skill-chip:hover,
+  .skill-chip:focus{
+    box-shadow:0 12px 22px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.06);
+  }
+}
+
+/* Respect users who reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .skill-chip{ transition:none; }
+  .skill-chip:hover, .skill-chip:focus{ transform:none; }
+}
