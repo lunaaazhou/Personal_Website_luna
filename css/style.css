@@ -72,6 +72,31 @@ figure {
   overflow: hidden;
   position: relative; }
 
+/* === Skills chip styles === */
+.skills-cloud{
+  display:flex;
+  flex-wrap:wrap;
+  gap:18px;
+  margin-top:18px;
+}
+.skills-cloud .skill-chip{
+  display:inline-flex;
+  align-items:center;
+  padding:10px 18px;
+  background:#9bb3ff;       /* pill color */
+  color:#fff;
+  border-radius:9999px;      /* fully rounded */
+  font-weight:700;
+  letter-spacing:.5px;
+  line-height:1;
+  box-shadow:0 6px 18px rgba(0,0,0,.12);
+  white-space:nowrap;
+}
+.skills-cloud .skill-chip:hover{
+  transform:translateY(-1px);
+}
+
+
 #colorlib-aside {
   padding-top: 3em;
   padding-bottom: 40px;
